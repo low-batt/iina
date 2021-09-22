@@ -87,6 +87,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   // MARK: - App Delegate
 
   func applicationWillFinishLaunching(_ notification: Notification) {
+    registerUserDefaultValues()
+
     // Start the log file by logging the version of IINA producing the log file.
     let (version, build) = Utility.iinaVersion()
     Logger.log("IINA \(version) Build \(build) Copyright © 2017-2021 Collider LI, et al.")
@@ -108,7 +110,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       Logger.log("  \(library.name) \(AppDelegate.versionAsString(library.version))")
     }
 
-    registerUserDefaultValues()
     Logger.log("App will launch")
 
     // register for url event
